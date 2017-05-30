@@ -1,0 +1,319 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		75676C9A1EDCF68800D535AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75676C991EDCF68800D535AF /* main.m */; };
+		75676C9D1EDCF68800D535AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 75676C9C1EDCF68800D535AF /* AppDelegate.m */; };
+		75676CA01EDCF68800D535AF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75676C9F1EDCF68800D535AF /* ViewController.m */; };
+		75676CA31EDCF68800D535AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75676CA11EDCF68800D535AF /* Main.storyboard */; };
+		75676CA51EDCF68800D535AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75676CA41EDCF68800D535AF /* Assets.xcassets */; };
+		75676CA81EDCF68800D535AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75676CA61EDCF68800D535AF /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		75676C951EDCF68800D535AF /* YYFaceDetection1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYFaceDetection1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		75676C991EDCF68800D535AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		75676C9B1EDCF68800D535AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		75676C9C1EDCF68800D535AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		75676C9E1EDCF68800D535AF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		75676C9F1EDCF68800D535AF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		75676CA21EDCF68800D535AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		75676CA41EDCF68800D535AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		75676CA71EDCF68800D535AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		75676CA91EDCF68800D535AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		75676C921EDCF68800D535AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		75676C8C1EDCF68800D535AF = {
+			isa = PBXGroup;
+			children = (
+				75676C971EDCF68800D535AF /* YYFaceDetection1.0 */,
+				75676C961EDCF68800D535AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		75676C961EDCF68800D535AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				75676C951EDCF68800D535AF /* YYFaceDetection1.0.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		75676C971EDCF68800D535AF /* YYFaceDetection1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				75676C9B1EDCF68800D535AF /* AppDelegate.h */,
+				75676C9C1EDCF68800D535AF /* AppDelegate.m */,
+				75676C9E1EDCF68800D535AF /* ViewController.h */,
+				75676C9F1EDCF68800D535AF /* ViewController.m */,
+				75676CA11EDCF68800D535AF /* Main.storyboard */,
+				75676CA41EDCF68800D535AF /* Assets.xcassets */,
+				75676CA61EDCF68800D535AF /* LaunchScreen.storyboard */,
+				75676CA91EDCF68800D535AF /* Info.plist */,
+				75676C981EDCF68800D535AF /* Supporting Files */,
+			);
+			path = YYFaceDetection1.0;
+			sourceTree = "<group>";
+		};
+		75676C981EDCF68800D535AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				75676C991EDCF68800D535AF /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		75676C941EDCF68800D535AF /* YYFaceDetection1.0 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75676CAC1EDCF68800D535AF /* Build configuration list for PBXNativeTarget "YYFaceDetection1.0" */;
+			buildPhases = (
+				75676C911EDCF68800D535AF /* Sources */,
+				75676C921EDCF68800D535AF /* Frameworks */,
+				75676C931EDCF68800D535AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YYFaceDetection1.0;
+			productName = YYFaceDetection1.0;
+			productReference = 75676C951EDCF68800D535AF /* YYFaceDetection1.0.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		75676C8D1EDCF68800D535AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = yejunyou;
+				TargetAttributes = {
+					75676C941EDCF68800D535AF = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = CZD89388LH;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 75676C901EDCF68800D535AF /* Build configuration list for PBXProject "YYFaceDetection1.0" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 75676C8C1EDCF68800D535AF;
+			productRefGroup = 75676C961EDCF68800D535AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				75676C941EDCF68800D535AF /* YYFaceDetection1.0 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		75676C931EDCF68800D535AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75676CA81EDCF68800D535AF /* LaunchScreen.storyboard in Resources */,
+				75676CA51EDCF68800D535AF /* Assets.xcassets in Resources */,
+				75676CA31EDCF68800D535AF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		75676C911EDCF68800D535AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75676CA01EDCF68800D535AF /* ViewController.m in Sources */,
+				75676C9D1EDCF68800D535AF /* AppDelegate.m in Sources */,
+				75676C9A1EDCF68800D535AF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		75676CA11EDCF68800D535AF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75676CA21EDCF68800D535AF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		75676CA61EDCF68800D535AF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75676CA71EDCF68800D535AF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		75676CAA1EDCF68800D535AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		75676CAB1EDCF68800D535AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		75676CAD1EDCF68800D535AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CZD89388LH;
+				INFOPLIST_FILE = YYFaceDetection1.0/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "From-Future.YYFaceDetection1-0";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		75676CAE1EDCF68800D535AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CZD89388LH;
+				INFOPLIST_FILE = YYFaceDetection1.0/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "From-Future.YYFaceDetection1-0";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		75676C901EDCF68800D535AF /* Build configuration list for PBXProject "YYFaceDetection1.0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75676CAA1EDCF68800D535AF /* Debug */,
+				75676CAB1EDCF68800D535AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75676CAC1EDCF68800D535AF /* Build configuration list for PBXNativeTarget "YYFaceDetection1.0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75676CAD1EDCF68800D535AF /* Debug */,
+				75676CAE1EDCF68800D535AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 75676C8D1EDCF68800D535AF /* Project object */;
+}
