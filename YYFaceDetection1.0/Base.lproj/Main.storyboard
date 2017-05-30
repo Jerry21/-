@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,43 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xiaoming" translatesAutoresizingMaskIntoConstraints="NO" id="HS7-QV-i1n">
+                                <rect key="frame" x="-143" y="195.5" width="660" height="275"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TF1-2X-JAN" customClass="ShowView">
+                                <rect key="frame" x="-143" y="195.5" width="660" height="275"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="275" id="6tR-yW-MxM"/>
+                                    <constraint firstAttribute="width" constant="660" id="Ih2-Mc-ha5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TF1-2X-JAN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8r0-6i-csT"/>
+                            <constraint firstItem="TF1-2X-JAN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="95f-AY-d1L"/>
+                            <constraint firstItem="TF1-2X-JAN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EYS-DU-va9"/>
+                            <constraint firstItem="TF1-2X-JAN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Hwi-YL-rBZ"/>
+                            <constraint firstItem="HS7-QV-i1n" firstAttribute="height" secondItem="TF1-2X-JAN" secondAttribute="height" id="LO6-Vf-qvk"/>
+                            <constraint firstItem="TF1-2X-JAN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PzA-uO-ur9"/>
+                            <constraint firstItem="HS7-QV-i1n" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gcJ-wi-VJL"/>
+                            <constraint firstItem="TF1-2X-JAN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="n7t-Fq-YWY"/>
+                            <constraint firstItem="HS7-QV-i1n" firstAttribute="width" secondItem="TF1-2X-JAN" secondAttribute="width" id="pfu-qH-9VF"/>
+                            <constraint firstItem="HS7-QV-i1n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vdJ-NF-FuT"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="HS7-QV-i1n" id="dlG-4n-SDo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="780" y="128.18590704647679"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="xiaoming" width="660" height="275"/>
+    </resources>
 </document>

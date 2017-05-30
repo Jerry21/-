@@ -8,15 +8,50 @@
 
 #import "AppDelegate.h"
 
+
 @interface AppDelegate ()
 
 @end
+
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+//    [FaceppAPI initWithApiKey:API_KEY andApiSecret:API_SECRET andRegion:0];
+    
+//    NSData *imageData = [NSData dataWithContentsOfFile:@"/Users/yejunyou/Desktop/timg3.jpg"];
+//    FaceppResult *result = [[FaceppAPI detection] detectWithURL:nil orImageData:imageData];
+//    
+//    // 用方法2
+////    FaceppResult *result = [[FaceppAPI group] deleteWithGroupName:nil orGroupId:nil];
+//    
+//    // detectLocalFileResult:
+//    double img_width = [[result content][@"img_width"] doubleValue];
+//    
+//    //  - 获得第一张脸的face_id：
+//    NSString *face_id = [result content][@"face"][0][@"face_id"];
+//    
+//    NSLog(@"img_width:%zd,face_id:%@",img_width,face_id);
+//    
+//    [FaceppAPI setDebugMode: TRUE];
+    
+//    NSString *imageURL = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1496144617328&di=3b5fc33624512c3c331dddf821cff67f&imgtype=0&src=http%3A%2F%2Feasyread.ph.126.net%2FGj-7aw9xUqevk2wV8Hfjhg%3D%3D%2F8796093022317926862.jpg";
+//    
+//    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+//    NSString *urlString = @"https://api-cn.faceplusplus.com/facepp/v3/detect";
+//    NSDictionary *params = @{@"api_key":API_KEY,
+//                             @"api_secret":API_SECRET,
+//                             @"image_url":imageURL,
+//                             @"return_landmark": @(1)};
+//    [mgr POST:urlString parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSLog(@"success:%@",responseObject);
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"fails:%@",error);
+//    }];
+    
+    
     return YES;
 }
 
