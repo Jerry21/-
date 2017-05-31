@@ -30,10 +30,31 @@ void drawImage(CGContextRef context, CGImageRef image , CGRect rect){
 }
 
 - (void)drawRect:(CGRect)rect {
-    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(ctx);
+    //翻转起来---上下颠倒
+    CGContextTranslateCTM(ctx, 0.0, self.bounds.size.height);
+    CGContextScaleCTM(ctx, 1.0, -1.0);
+    
+    ////假设想在10,30,80,80的地方绘制,颠倒过来后的Rect应该是 10, self.bounds.size.height - 110, 80, 80
+    CGRect imageRect = self.bounds;//CGRectMake(10, self.bounds.size.height - 110, 80, 80);
+    CGContextDrawImage(ctx, imageRect, [UIImage imageNamed:@"xiaoming"].CGImage);
+    CGContextRestoreGState(ctx);
+    
+    UIImageView *iv;
+    
+    CGContextDrawImage(ctx, imageRect, iv.image.CGImage);
+    
+    //字体在iOS7中被废除了,移入CoreText框架中,以后再详细讨论.
+//    [@"这是一个飞船" drawAtPoint:CGPointMake(10, 120) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+//    CGContextRef context = UIGraphicsGetCurrentContext();
 //    UIImage *image = [UIImage imageNamed:@"xaioming"];
-//    CGContextDrawImage(ctx, self.bounds, [UIImage imageNamed:@"xaioming"].CGImage);
-//    CGContextFillPath(ctx);
+////    CGContextDrawImage(context, self.bounds, [image CGImage]);
+////    CGContextFillPath(context);
+//    
+//    CGContextTranslateCTM(context, 0, self.bounds.size.height);
+//    CGContextScaleCTM(context, 1.0, -1.0);
 //    drawImage(context, image.CGImage, self.bounds);
     
     [self d];
@@ -55,59 +76,12 @@ void drawImage(CGContextRef context, CGImageRef image , CGRect rect){
         NSString *path = @"/Users/yejunyou/Desktop/1234.plist";
         [rpsDic writeToFile:path atomically:YES];
         
-        
-        
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"fails:%@",error);
         NSTimeInterval date2 = [[NSDate date] timeIntervalSince1970];
         NSLog(@"NSTimeInterval2222:%f",date2 - date1);
     }];
      */
-    
-//    // 加载plist文件
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"Face" ofType:@"plist"];
-//    NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:path];
-//    // 取出face数组
-//    NSArray *faceArray = dic[@"faces"];
-//    
-//    // 五官轮廓
-//    for (NSDictionary *item in faceArray)
-//    {
-//        // 脸部轮廓
-//        [self drawFaceRectangle:item[@"face_rectangle"]];
-//        
-//        // 获取关键点
-//        NSDictionary *landmark = item[@"landmark"];
-//        // 五官轮廓
-//        [self contourWithDic:landmark];
-    
-        // 眼睛轮廓
-//        [self eyeWithDic:landmark];
-        
-        // 鼻子轮廓
-//        [self noseWithDic:landmark];
-        
-        // 嘴部轮廓
-//        [self mouthWithDic:landmark];
-
-        // 脸部轮廓
-//        for (NSInteger i = 0; i < 23; i ++)
-//        {
-//            NSString *contour_left1 = [NSString stringWithFormat:@"contour_left%zd",i];
-//            NSString *contour_left2 = [NSString stringWithFormat:@"contour_left%zd",i+1];
-//            [self drawKeyPoint1:landmark[contour_left1] point2:landmark[contour_left2]];
-//            
-//            
-//            NSString *contour_right1 = [NSString stringWithFormat:@"contour_right%zd",i];
-//            NSString *contour_right2 = [NSString stringWithFormat:@"contour_right%zd",i+1];
-//            [self drawKeyPoint1:landmark[contour_right1] point2:landmark[contour_right2]];
-//        }
-        
-        // 嘴部轮廓
-//    }
-    
-    
 }
 
 - (void)d
@@ -155,83 +129,6 @@ void drawImage(CGContextRef context, CGImageRef image , CGRect rect){
     }
 }
 
-// 关键点
-- (void)eyeWithDic:(NSDictionary *)dic
-{
-    
-    CGPoint left_eye_bottom = [self pointFromDic:dic[@"left_eye_bottom"]];
-    CGPoint left_eye_center = [self pointFromDic:dic[@"left_eye_center"]];
-    [self lineWithP1:left_eye_bottom p2:left_eye_center];
-    
-    CGPoint left_eye_left_corner = [self pointFromDic:dic[@"left_eye_left_corner"]];
-    CGPoint left_eye_lower_left_quarter = [self pointFromDic:dic[@"left_eye_lower_left_quarter"]];
-    [self lineWithP1:left_eye_left_corner p2:left_eye_lower_left_quarter];
-    
-    CGPoint left_eye_lower_right_quarter = [self pointFromDic:dic[@"left_eye_lower_right_quarter"]];
-    CGPoint left_eye_pupil = [self pointFromDic:dic[@"left_eye_pupil"]];
-    [self lineWithP1:left_eye_lower_right_quarter p2:left_eye_pupil];
-    
-    CGPoint left_eye_right_corner = [self pointFromDic:dic[@"left_eye_right_corner"]];
-    CGPoint left_eye_top = [self pointFromDic:dic[@"left_eye_top"]];
-    [self lineWithP1:left_eye_right_corner p2:left_eye_top];
-    
-    CGPoint left_eye_upper_left_quarter = [self pointFromDic:dic[@"left_eye_upper_left_quarter"]];
-    CGPoint left_eye_upper_right_quarter = [self pointFromDic:dic[@"left_eye_upper_right_quarter"]];
-    [self lineWithP1:left_eye_upper_left_quarter p2:left_eye_upper_right_quarter];
-    
-    CGPoint left_eyebrow_left_corner = [self pointFromDic:dic[@"left_eyebrow_left_corner"]];
-    CGPoint left_eyebrow_lower_left_quarter = [self pointFromDic:dic[@"left_eyebrow_lower_left_quarter"]];
-    [self lineWithP1:left_eyebrow_left_corner p2:left_eyebrow_lower_left_quarter];
-    
-    CGPoint left_eyebrow_lower_middle = [self pointFromDic:dic[@"left_eyebrow_lower_middle"]];
-    CGPoint left_eyebrow_lower_right_quarter = [self pointFromDic:dic[@"left_eyebrow_lower_right_quarter"]];
-    [self lineWithP1:left_eyebrow_lower_middle p2:left_eyebrow_lower_right_quarter];
-    
-    CGPoint left_eyebrow_right_corner = [self pointFromDic:dic[@"left_eyebrow_right_corner"]];
-    CGPoint left_eyebrow_upper_left_quarter = [self pointFromDic:dic[@"left_eyebrow_upper_left_quarter"]];
-    [self lineWithP1:left_eyebrow_right_corner p2:left_eyebrow_upper_left_quarter];
-    
-    CGPoint left_eyebrow_upper_middle = [self pointFromDic:dic[@"left_eyebrow_upper_middle"]];
-    CGPoint left_eyebrow_upper_right_quarter = [self pointFromDic:dic[@"left_eyebrow_upper_right_quarter"]];
-    [self lineWithP1:left_eyebrow_upper_middle p2:left_eyebrow_upper_right_quarter];
-    
-    CGPoint right_eye_bottom = [self pointFromDic:dic[@"right_eye_bottom"]];
-    CGPoint right_eye_center = [self pointFromDic:dic[@"right_eye_center"]];
-    [self lineWithP1:right_eye_bottom p2:right_eye_center];
-    
-    CGPoint right_eye_left_corner = [self pointFromDic:dic[@"right_eye_left_corner"]];
-    CGPoint right_eye_lower_left_quarter = [self pointFromDic:dic[@"right_eye_lower_left_quarter"]];
-    [self lineWithP1:right_eye_left_corner p2:right_eye_lower_left_quarter];
-    
-    CGPoint right_eye_lower_right_quarter = [self pointFromDic:dic[@"right_eye_lower_right_quarter"]];
-    CGPoint right_eye_pupil = [self pointFromDic:dic[@"right_eye_pupil"]];
-    [self lineWithP1:right_eye_lower_right_quarter p2:right_eye_pupil];
-    
-    CGPoint right_eye_right_corner = [self pointFromDic:dic[@"right_eye_right_corner"]];
-    CGPoint right_eye_top = [self pointFromDic:dic[@"right_eye_top"]];
-    [self lineWithP1:right_eye_right_corner p2:right_eye_top];
-    
-    CGPoint right_eye_upper_left_quarter = [self pointFromDic:dic[@"right_eye_upper_left_quarter"]];
-    CGPoint right_eye_upper_right_quarter = [self pointFromDic:dic[@"right_eye_upper_right_quarter"]];
-    [self lineWithP1:right_eye_upper_left_quarter p2:right_eye_upper_right_quarter];
-    
-    CGPoint right_eyebrow_left_corner = [self pointFromDic:dic[@"right_eyebrow_left_corner"]];
-    CGPoint right_eyebrow_lower_left_quarter = [self pointFromDic:dic[@"right_eyebrow_lower_left_quarter"]];
-    [self lineWithP1:right_eyebrow_left_corner p2:right_eyebrow_lower_left_quarter];
-    
-    CGPoint right_eyebrow_lower_middle = [self pointFromDic:dic[@"right_eyebrow_lower_middle"]];
-    CGPoint right_eyebrow_lower_right_quarter = [self pointFromDic:dic[@"right_eyebrow_lower_right_quarter"]];
-    [self lineWithP1:right_eyebrow_lower_middle p2:right_eyebrow_lower_right_quarter];
-    
-    CGPoint right_eyebrow_right_corner = [self pointFromDic:dic[@"right_eyebrow_right_corner"]];
-    CGPoint right_eyebrow_upper_left_quarter = [self pointFromDic:dic[@"right_eyebrow_upper_left_quarter"]];
-    [self lineWithP1:right_eyebrow_right_corner p2:right_eyebrow_upper_left_quarter];
-    
-    CGPoint right_eyebrow_upper_middle = [self pointFromDic:dic[@"right_eyebrow_upper_middle"]];
-    CGPoint right_eyebrow_upper_right_quarter = [self pointFromDic:dic[@"right_eyebrow_upper_right_quarter"]];
-    [self lineWithP1:right_eyebrow_upper_middle p2:right_eyebrow_upper_right_quarter];
-    
-}
 
 //
 - (CGPoint)pointFromDic:(NSDictionary *)dic
