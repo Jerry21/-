@@ -16,7 +16,6 @@
 @implementation ShowView
 
 
-
 void drawImage(CGContextRef context, CGImageRef image , CGRect rect){
     CGContextSaveGState(context);
     
@@ -25,69 +24,31 @@ void drawImage(CGContextRef context, CGImageRef image , CGRect rect){
     CGContextScaleCTM(context, 1.0, -1.0);
     CGContextTranslateCTM(context, -rect.origin.x, -rect.origin.y);
     CGContextDrawImage(context, rect, image);
-    
     CGContextRestoreGState(context);
 }
 
-- (void)drawRect:(CGRect)rect {
+- (void)drawImage
+{
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGContextSaveGState(ctx);
-    //翻转起来---上下颠倒
     CGContextTranslateCTM(ctx, 0.0, self.bounds.size.height);
     CGContextScaleCTM(ctx, 1.0, -1.0);
-    
-    ////假设想在10,30,80,80的地方绘制,颠倒过来后的Rect应该是 10, self.bounds.size.height - 110, 80, 80
-    CGRect imageRect = self.bounds;//CGRectMake(10, self.bounds.size.height - 110, 80, 80);
+    CGRect imageRect = self.bounds;
     CGContextDrawImage(ctx, imageRect, [UIImage imageNamed:@"xiaoming"].CGImage);
     CGContextRestoreGState(ctx);
+}
+
+- (void)drawRect:(CGRect)rect
+{
     
-    UIImageView *iv;
-    
-    CGContextDrawImage(ctx, imageRect, iv.image.CGImage);
-    
-    //字体在iOS7中被废除了,移入CoreText框架中,以后再详细讨论.
-//    [@"这是一个飞船" drawAtPoint:CGPointMake(10, 120) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor blackColor]}];
-    
-//    CGContextRef context = UIGraphicsGetCurrentContext();
-//    UIImage *image = [UIImage imageNamed:@"xaioming"];
-////    CGContextDrawImage(context, self.bounds, [image CGImage]);
-////    CGContextFillPath(context);
-//    
-//    CGContextTranslateCTM(context, 0, self.bounds.size.height);
-//    CGContextScaleCTM(context, 1.0, -1.0);
-//    drawImage(context, image.CGImage, self.bounds);
-    
+
     [self d];
-    /*
-    NSTimeInterval date1 = [[NSDate date] timeIntervalSince1970];
-    NSString *imageURL = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1496164742657&di=cd1b186fe60dfa4872554e6c1d0d6475&imgtype=0&src=http%3A%2F%2Fs7.sinaimg.cn%2Fmw690%2F004ikHdjgy6GGy1bKqW36%26690";
-    
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-    NSString *urlString = @"https://api-cn.faceplusplus.com/facepp/v3/detect";
-    NSDictionary *params = @{@"api_key":API_KEY,
-                             @"api_secret":API_SECRET,
-                             @"image_url":imageURL,
-                             @"return_landmark": @(1)};
-    [mgr POST:urlString parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *rpsDic ) {
-        NSTimeInterval date2 = [[NSDate date] timeIntervalSince1970];
-        NSLog(@"NSTimeInterval:%f",date2 - date1);
-        
-        
-        NSString *path = @"/Users/yejunyou/Desktop/1234.plist";
-        [rpsDic writeToFile:path atomically:YES];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"fails:%@",error);
-        NSTimeInterval date2 = [[NSDate date] timeIntervalSince1970];
-        NSLog(@"NSTimeInterval2222:%f",date2 - date1);
-    }];
-     */
 }
 
 - (void)d
 {
     // 加载plist文件
-    NSString *path1 = [[NSBundle mainBundle] pathForResource:@"Face" ofType:@"plist"];
+    NSString *path1 = [[NSBundle mainBundle] pathForResource:@"1234" ofType:@"plist"];
     NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:path1];
     // 取出face数组
     NSArray *faceArray = dic[@"faces"];
@@ -96,7 +57,7 @@ void drawImage(CGContextRef context, CGImageRef image , CGRect rect){
     for (NSDictionary *item in faceArray)
     {
         // 脸部轮廓
-        [self drawFaceRectangle:item[@"face_rectangle"]];
+//        [self drawFaceRectangle:item[@"face_rectangle"]];
         
         // 五官轮廓
         [self contourWithDic:item[@"landmark"]];
@@ -109,25 +70,109 @@ void drawImage(CGContextRef context, CGImageRef image , CGRect rect){
     {
         NSDictionary *pointDict = dic[key];
         CGPoint p = [self pointFromDic:pointDict];
-//        CGPoint startP  = [self lineP1:p p2:p];
         [self bigPoint:p];
     }
+    
+    [self lineWithDic:dic];
 }
 
-- (void)mouthWithDic:(NSDictionary *)dic
+- (void)lineWithDic:(NSDictionary *)dic
 {
     
-}
-
-- (void)noseWithDic:(NSDictionary *)dic
-{
-    for (NSDictionary *itemDic in dic)
     {
-        NSDictionary *pointDict = dic[itemDic];
+        CGPoint p1 = [self pointFromDic:dic[@"left_eyebrow_left_corner"]];
+        CGPoint p2 = [self pointFromDic:dic[@"left_eyebrow_upper_left_quarter"]];
+        CGPoint p3 = [self pointFromDic:dic[@"left_eyebrow_upper_right_quarter"]];
+        CGPoint p4 = [self pointFromDic:dic[@"right_eyebrow_left_corner"]];
+        CGPoint p5 = [self pointFromDic:dic[@"right_eyebrow_upper_right_quarter"]];
+        CGPoint p6 = [self pointFromDic:dic[@"right_eyebrow_right_corner"]];
+        CGPoint p7 = [self pointFromDic:dic[@"mouth_right_corner"]];
+        CGPoint p8 = [self pointFromDic:dic[@"contour_chin"]];
+        CGPoint p9 = [self pointFromDic:dic[@"mouth_left_corner"]];
+        CGPoint p10 = [self pointFromDic:dic[@"left_eyebrow_left_corner"]];
         
-        [self bigPoint:[self pointFromDic:pointDict]];
+        CGPoint p11 = [self pointFromDic:dic[@"left_eye_right_corner"]];
+        CGPoint p12 = [self pointFromDic:dic[@"right_eye_left_corner"]];
+        
+        CGPoint p13 = [self pointFromDic:dic[@"nose_left"]];
+        CGPoint p14 = [self pointFromDic:dic[@"nose_right"]];
+        CGPoint p15 = [self pointFromDic:dic[@"nose_contour_lower_middle"]];
+        
+        CGPoint p16 = [self pointFromDic:dic[@"mouth_lower_lip_top"]];
+        
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        [path moveToPoint:p1];
+        [path addLineToPoint:p2];
+        [path addLineToPoint:p3];
+        [path addLineToPoint:p4];
+        [path addLineToPoint:p5];
+        [path addLineToPoint:p6];
+        [path addLineToPoint:p7];
+        [path addLineToPoint:p8];
+        [path addLineToPoint:p9];
+        [path addLineToPoint:p10];
+        [path addLineToPoint:p13];
+        [path addLineToPoint:p11];
+        [path addLineToPoint:p15];
+        [path addLineToPoint:p12];
+        [path addLineToPoint:p14];
+        [path addLineToPoint:p6];
+        
+        [path moveToPoint:p2];
+        [path addLineToPoint:p13];
+        
+        [path moveToPoint:p3];
+        [path addLineToPoint:p11];
+        
+        [path moveToPoint:p5];
+        [path addLineToPoint:p14];
+        
+        [path moveToPoint:p4];
+        [path addLineToPoint:p12];
+        
+        [path moveToPoint:p15];
+        [path addLineToPoint:p13];
+        [path addLineToPoint:p16];
+        [path addLineToPoint:p8];
+        
+        [path moveToPoint:p15];
+        [path addLineToPoint:p14];
+        [path addLineToPoint:p16];
+        
+        [path moveToPoint:p13];
+        [path addLineToPoint:p9];
+        
+        [path moveToPoint:p14];
+        [path addLineToPoint:p7];
+        
+        
+        
+        [[UIColor redColor] setStroke];
+    
+//        [path strokeWithBlendMode:kCGBlendModeNormal alpha:0.5];
+        [path stroke];
+        
+        
+//        [self bigPoint:p1];
+//        [self bigPoint:p2];
+//        [self bigPoint:p3];
+//        [self bigPoint:p4];
+//        [self bigPoint:p5];
+//        [self bigPoint:p6];
+//        [self bigPoint:p7];
+//        [self bigPoint:p8];
+//        [self bigPoint:p9];
+//        [self bigPoint:p10];
+//        [self bigPoint:p11];
+//        [self bigPoint:p12];
+//        [self bigPoint:p13];
+//        [self bigPoint:p14];
+//        [self bigPoint:p15];
+//        [self bigPoint:p16];
     }
 }
+
+
 
 
 //
@@ -140,8 +185,7 @@ void drawImage(CGContextRef context, CGImageRef image , CGRect rect){
 
 - (void)lineWithP1:(CGPoint)p1 p2:(CGPoint)p2
 {
-    [self bigPoint:p1];
-    [self bigPoint:p2];
+    
 }
 
 
@@ -156,7 +200,7 @@ void drawImage(CGContextRef context, CGImageRef image , CGRect rect){
 
 - (CGPoint)bigPoint:(CGPoint)p
 {
-    CGFloat offert = 0.5;
+    CGFloat offert = 0.7;
     UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(p.x - offert, p.y - offert, offert *2, offert * 2)];
     [[UIColor redColor] setFill];
     [path stroke];
@@ -180,20 +224,6 @@ void drawImage(CGContextRef context, CGImageRef image , CGRect rect){
     [path stroke];
 }
 
-
-- (void)drawKeyPoint:(NSDictionary *)kpoint
-{
-    NSNumber *x = kpoint[@"x"];
-    NSNumber *y = kpoint[@"y"];
-    CGPoint point1 = CGPointMake(x.floatValue, y.floatValue);
-    CGPoint point2 = CGPointMake(x.floatValue+1, y.floatValue+1);
-    
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    [path moveToPoint:point1];
-    [path addLineToPoint:point2];
-    [[UIColor redColor] setFill];
-    [path stroke];
-}
 
 // 脸部框框
 - (void)drawFaceRectangle:(NSDictionary *)rectangle

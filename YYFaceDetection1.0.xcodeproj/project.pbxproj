@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		750819E51EDF900800BA119A /* 1234.plist in Resources */ = {isa = PBXBuildFile; fileRef = 750819E41EDF900800BA119A /* 1234.plist */; };
 		7555B5241EDD688F0060B3A4 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7555B5011EDD688F0060B3A4 /* AFHTTPSessionManager.m */; };
 		7555B5251EDD688F0060B3A4 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7555B5041EDD688F0060B3A4 /* AFNetworkReachabilityManager.m */; };
 		7555B5261EDD688F0060B3A4 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7555B5061EDD688F0060B3A4 /* AFSecurityPolicy.m */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		750819E41EDF900800BA119A /* 1234.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 1234.plist; sourceTree = "<group>"; };
 		7555B5001EDD688F0060B3A4 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		7555B5011EDD688F0060B3A4 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		7555B5021EDD688F0060B3A4 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				7555B5461EDD8FF80060B3A4 /* ShowView.h */,
 				7555B5471EDD8FF80060B3A4 /* ShowView.m */,
 				7555B5491EDD907B0060B3A4 /* Face.plist */,
+				750819E41EDF900800BA119A /* 1234.plist */,
 				75676CA11EDCF68800D535AF /* Main.storyboard */,
 				75676CD61EDD0E1500D535AF /* timg3.jpg */,
 				7555B54B1EDDBDB70060B3A4 /* SDWebImage */,
@@ -360,6 +363,7 @@
 				7555B56C1EDDBDB70060B3A4 /* LICENSE in Resources */,
 				7555B54A1EDD907B0060B3A4 /* Face.plist in Resources */,
 				75676CA31EDCF68800D535AF /* Main.storyboard in Resources */,
+				750819E51EDF900800BA119A /* 1234.plist in Resources */,
 				7555B52A1EDD688F0060B3A4 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
